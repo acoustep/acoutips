@@ -1,10 +1,31 @@
 # Acoutips
 
 ## Introduction
-Acoutips is a barebones tool tip generator to get started use the following code:
+
+Acoutips is a barebones jQuery tool tip generator.
 
 ## Instructions
+Make sure you include jQuery (tested with 1.8+ although I suspect it will work with older versions) and the acoutips.jquery.js file.
+
+To get started use the following code:
+
 ```html
+<style>
+	.acoutips
+	{
+		border-radius:5px;
+		background:#999;
+		color:#fff;
+		font-size: 11px;
+		position:absolute;
+		padding:10px;
+	}
+	.set_width
+	{
+		width:200px;
+	}
+</style>
+
 <a href="#" id="default_tooltip" data-tip="This is a test">Default behaviour</a>
 
 <script>
@@ -38,5 +59,7 @@ $('#right_responsive_set_width_tooltip').acoutips({
 ## To do
 * transitional effects.
 * Option to make tool tip stick until an event is triggered.
+* Allow title attribute to be used for tool tip text - but let data-tip take priority if both exist.
+* Tidy up the code.
 * Prettier default styling.
 * Needs to be browser tested.
