@@ -35,7 +35,7 @@ To get started use the following code:
 </script>
 ```
 
-Anything inside of the data-top attribute gets made into a tool tip. And mouseover can also be changed to 'click' depending on how you want to activate the tool tip.
+Anything inside of the data-tip attribute gets made into a tool tip. And mouseover can also be changed to 'click' depending on how you want to activate the tool tip.
 
 The following options are also available for customisation:
 * on: 'mouseover' - alternatives: click
@@ -59,6 +59,7 @@ $('#right_responsive_set_width_tooltip').acoutips({
 </script>
 ```
 ## To do
+* Allow function call with no parameters.
 * transitional effects.
 * Option to make tool tip stick until an event is triggered.
 * Allow title attribute to be used for tool tip text - but let data-tip take priority if both exist.
