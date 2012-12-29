@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset=utf-8>
+	<title>Acoutips demo</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<!--[if lt IE 9]>
+		<script src="html5shiv.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+<div class="container-narrow">
+<div class="masthead">
+    <ul class="nav nav-pills pull-right">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="https://github.com/acoustep/acoutips" target="_blank">Github</a></li>
+    </ul>
+    <h3 class="muted">Acoutips Demo Page</h3>
+  </div>
+
+
+  <hr>
+
+  <div class="row-fluid marketing">
+    <div class="span6">
+      <h4>Mouseover</h4>
+      <p><a href="#" id="default_tooltip" data-tip="This is a test">Hover here</a></p>
+      <pre>
+$('#mouseover_tooltip')
+	.acoutips('mouseover');</pre>
+
+      <h4>Click</h4>
+      <p><a href="#" id="click_tooltip" data-tip="This is a test">Click here</a></p>
+      <pre>
+$('#click_tooltip')
+	.acoutips('click');</pre>
+      
+		<h4>Above</h4>
+      <p>
+	<a href="#" id="above_tooltip" data-tip="This is a test">Show above</a></p>
+			<pre>
+$('#above_tooltip').acoutips({
+	on: 'mouseover',
+	yPosition: 'top'
+});</pre>
+<h4>Above and right aligned</h4>
+      <p>
+	<a href="#" id="above_right_align_tooltip" data-tip="This is a test">Show above and align to the right</a></p>
+			<pre>
+$('#above_right_align_tooltip').acoutips({
+	on: 'mouseover',
+	xPosition: 'right-align',
+	yPosition: 'top'
+});</pre>
+    </div>
+
+    <div class="span6">
+    	<h4>Right align</h4>
+      <p>
+	<a href="#" id="right_align_tooltip" data-tip="This is a test">Right-align behaviour</a></p>
+			<pre>
+$('#right_align_tooltip').acoutips({
+	on: 'mouseover',
+	xPosition: 'right-align'
+});</pre>
+    	<h4>Right</h4>
+      <p>
+	<a href="#" id="right_tooltip" data-tip="This is a test">Show to the right</a></p>
+			<pre>
+$('#right_tooltip').acoutips({
+	on: 'mouseover',
+	xPosition: 'right'
+});</pre>
+
+     <h4>Left</h4>
+      <p>
+	<a href="#" id="left_tooltip" data-tip="This is a test">Show to the left</a></p>
+			<pre>
+$('#left_tooltip').acoutips({
+	on: 'mouseover',
+	xPosition: 'left'
+});</pre>
+
+<h4>Offsetting</h4>
+      <p>
+	<a href="#" id="offset_tooltip" data-tip="This is a test">Offset</a></p>
+			<pre>
+$('#offset_tooltip').acoutips({
+	on: 'mouseover',
+	xOffset: 20,
+	yOffset: -20
+});</pre>
+
+    </div>
+  </div>
+
+</div><!-- end container-narrow -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<script src="bootstrap.responsive.min.js"></script>
+<script src="acoutips.jquery.js"></script>
+<script>
+	$('#default_tooltip').acoutips('mouseover');
+	$('#click_tooltip').acoutips('click');
+	$('#right_align_tooltip').acoutips({
+			on: 'mouseover',
+			xPosition: 'right-align'
+		});
+	$('#above_tooltip').acoutips({
+			on: 'mouseover',
+			yPosition: 'top'
+		});
+	$('#left_tooltip').acoutips({
+			on: 'mouseover',
+			xPosition: 'left'
+		});
+	$('#right_tooltip').acoutips({
+			on: 'mouseover',
+			xPosition: 'right'
+		});
+	$('#above_right_align_tooltip').acoutips({
+			on: 'mouseover',
+			xPosition: 'right-align',
+			yPosition: 'top'
+		});	
+	$('#offset_tooltip').acoutips({
+			on: 'mouseover',
+			xPosition: 'right',
+			xOffset: 20,
+			yOffset: -20
+		});
+</script>
+</body>
+</html>

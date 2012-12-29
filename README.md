@@ -4,6 +4,8 @@
 
 Acoutips is a barebones jQuery tool tip generator.
 
+View the demo here [here](http://mitchstanley.co.uk/acoutips/index.html)
+
 ## Instructions
 Make sure you include jQuery (tested with 1.8+ although I suspect it will work with older versions) and the acoutips.jquery.js file.
 
@@ -38,7 +40,7 @@ Anything inside of the data-top attribute gets made into a tool tip. And mouseov
 The following options are also available for customisation:
 * on: 'mouseover' - alternatives: click
 * off: 'mouseout' (currently there is no other option)
-* class: 'acoutips' - note that you can add as many classes as you seperated by spaces but keep the acoutips class as well if you wish to keep the default styling.
+* class: 'acoutips' - note that you can add as many classes as you wish separated by spaces. Include the acoutips class as well if you wish to keep the default styling.
 * xPosition: 'default' - default is 'left-align', alternatively you can use 'right', 'right-align' or 'left'
 * yPosition: 'bottom' - use 'top' to show the tool tip above
 * xOffset: 0 - add or subtract along the x-axis
@@ -61,5 +63,9 @@ $('#right_responsive_set_width_tooltip').acoutips({
 * Option to make tool tip stick until an event is triggered.
 * Allow title attribute to be used for tool tip text - but let data-tip take priority if both exist.
 * Tidy up the code.
+* yPosition 'middle' to align in the middle.
 * Prettier default styling.
 * Needs to be browser tested.
+
+## Known Issues
+* xPosition: 'left' seems to go a little too far to the left.
