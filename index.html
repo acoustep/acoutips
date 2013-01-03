@@ -29,6 +29,7 @@
 
 	<a href="#" id="right_tooltip" data-tip="This is a test">Right behaviour</a>
 	<a href="#" id="left_tooltip" data-tip="This is a test">Left behaviour</a>
+	<a href="#" id="left_above_tooltip" data-tip="This is a test">Left above behaviour</a>
 	<a href="#" id="right_align_tooltip" data-tip="This is a test">Right-align behaviour</a>
 	<a href="#" id="above_right_align_tooltip" data-tip="This is a test">Above right-align behaviour</a>
 	<br><br><br><br>
@@ -38,7 +39,7 @@
 	<br><br><br><br>
 	<a href="#" id="right_responsive_set_width_tooltip" data-tip="This is a test" style="float:right">Right responsive set width behaviour</a>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="acoutips.jquery.js"></script>
+<script src="jquery.acoutips.js"></script>
 <script>
 	$('#default_tooltip').acoutips('mouseover');
 	$('#click_tooltip').acoutips('click');
@@ -76,7 +77,12 @@
 			on: 'mouseover',
 			xPosition: 'right',
 			class: 'acoutips set_width'
-
+		});
+	$('#left_above_tooltip').acoutips({
+			on: 'mouseover',
+			xPosition: 'left',
+			yPosition: 'top',
+			class: 'acoutips'
 		});
 </script>
 </body>

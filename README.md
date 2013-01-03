@@ -4,7 +4,7 @@
 
 Acoutips is a barebones jQuery tool tip generator.
 
-View the demo here [here](http://mitchstanley.co.uk/acoutips/index.html)
+View the demo [here](http://mitchstanley.co.uk/acoutips/index.html)
 
 ## Instructions
 Make sure you include jQuery (tested with 1.8+ although I suspect it will work with older versions) and the acoutips.jquery.js file.
@@ -35,7 +35,7 @@ To get started use the following code:
 </script>
 ```
 
-Anything inside of the data-tip attribute gets made into a tool tip. And mouseover can also be changed to 'click' depending on how you want to activate the tool tip.
+Anything inside of the data-tip attribute gets made into a tool tip.
 
 The following options are also available for customisation:
 * on: 'mouseover' - alternatives: click
@@ -69,4 +69,4 @@ $('#right_responsive_set_width_tooltip').acoutips({
 * Needs to be browser tested.
 
 ## Known Issues
-* xPosition: 'left' seems to go a little too far to the left.
+None.

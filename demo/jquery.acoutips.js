@@ -55,7 +55,8 @@ if( typeof Object.create !== 'function' ) {
 				if(options.xPosition === 'right'){
 					width = $this.outerWidth();
 				} else if(options.xPosition === 'left'){
-					width = -$this.outerWidth();
+					width = -$('#' + tipId).outerWidth();
+
 				} else if(options.xPosition === 'right-align'){
 					width = $this.outerWidth() - $( '#' +tipId ).outerWidth();
 				}
@@ -74,18 +75,18 @@ if( typeof Object.create !== 'function' ) {
 				}
 		},
 		responsive: function($this){
-			console.log($(self.body).width());
+			//console.log($(self.body).width());
 			var tipId = 'acoutips-' + $this.attr('id'),
 					position = $('#' + tipId).position().left + $('#' + tipId).outerWidth(),
 					positionLeft = $('#' + tipId).position().left,
 					windowOuterWidth = window.outerWidth;
-			console.log(windowOuterWidth);
-			console.log(position);
+			//console.log(windowOuterWidth);
+			//console.log(position);
 			if( position > windowOuterWidth ){
-				console.log('true');
+				//console.log('true');
 				 // newPosition = position - windowOuterWidth;
 				 var newPosition = position - positionLeft;
-				console.log(newPosition);
+				//console.log(newPosition);
 				$('#' + tipId).css({
 					left: '-=' + newPosition
 				});
