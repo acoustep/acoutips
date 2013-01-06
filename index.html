@@ -38,6 +38,10 @@
 	<a href="#" id="right_responsive_tooltip" data-tip="This is a test" style="float:right">Right responsive behaviour</a>
 	<br><br><br><br>
 	<a href="#" id="right_responsive_set_width_tooltip" data-tip="This is a test" style="float:right">Right responsive set width behaviour</a>
+	<br><br><br><br>
+	<a href="#" id="title_attribute_tooltip" title="This is the title attribute">Using title attribute</a> <a href="#" id="data_tip_first_tooltip" title="This is the title attribute" data-tip="this is the data-tip attribute">Using data-tip attribute over title attribute</a>
+	<br><br><br><br><br>
+	<p>An example sentence with a <a href="#" id="sentence_tooltip" data-tip="This is a test">tooltip</a> included!</p>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="jquery.acoutips.js"></script>
 <script>
@@ -84,6 +88,9 @@
 			yPosition: 'top',
 			class: 'acoutips'
 		});
+	$('#title_attribute_tooltip').acoutips('mouseover');
+	$('#data_tip_first_tooltip').acoutips('mouseover');
+	$('#sentence_tooltip').acoutips('mouseover');
 </script>
 </body>
 </html>

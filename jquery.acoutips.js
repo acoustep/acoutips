@@ -36,7 +36,7 @@ if( typeof Object.create !== 'function' ) {
 					$('#' + tipId).show();
 				} else {
 					$('<div></div>', {
-						text: $this.data('tip'),
+						text: $this.data('tip') || $this.attr('title'),
 						id: tipId,
 						class: options.class
 					}).insertAfter($this);
