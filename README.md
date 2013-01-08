@@ -58,15 +58,21 @@ $('#right_responsive_set_width_tooltip').acoutips({
 });
 </script>
 ```
+
+## Change log
+### Version 0.1.1
+
+* Allow title attribute to be used for tool tip text - but let data-tip take priority if both exist.
+
 ## To do
 * Allow function call with no parameters.
 * transitional effects.
 * Option to make tool tip stick until an event is triggered.
-* Allow title attribute to be used for tool tip text - but let data-tip take priority if both exist.
 * Tidy up the code.
 * yPosition 'middle' to align in the middle.
 * Prettier default styling.
 * Needs to be browser tested.
-
+* Remake in Coffescript
+* Make a it work with classes (currently works with ids) so that 1 function call can affect multiple elements
 ## Known Issues
 None.
