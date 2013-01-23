@@ -5,7 +5,7 @@
 	<title>Acoutips Example</title>
 	<link rel="stylesheet" href="reset.css">
 	<style>
-		.acoutips
+		.acoutip_tooltip
 		{
 			border-radius:5px;
 			background:#1d1d1d;
@@ -22,8 +22,8 @@
 	</style>
 </head>
 <body>
-	<a href="#" id="default_tooltip" data-tip="This is a test">Default behaviour</a>
-	<a href="#" id="click_tooltip" data-tip="This is a test">Click behaviour</a>
+	<a href="#" id="default_tooltip" class="testing" data-tip="This is a test">Default behaviour</a>
+	<a href="#" id="click_tooltip" class="testing" data-tip="This is a second test">Click behaviour</a>
 	<br><br><br><br>
 	<a href="#" id="above_tooltip" data-tip="This is a test">Above behaviour</a>
 
@@ -45,52 +45,56 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="jquery.acoutips.js"></script>
 <script>
-	$('#default_tooltip').acoutips('mouseover');
-	$('#click_tooltip').acoutips('click');
-	$('#above_tooltip').acoutips({
-			on: 'mouseover',
-			yPosition: 'top'
-		});
-	$('#right_tooltip').acoutips({
-			on: 'mouseover',
-			xPosition: 'right'
-		});
-	$('#left_tooltip').acoutips({
-			on: 'mouseover',
-			xPosition: 'left'
-		});
-	$('#right_align_tooltip').acoutips({
-			on: 'mouseover',
-			xPosition: 'right-align'
-		});
-	$('#above_right_align_tooltip').acoutips({
-			on: 'mouseover',
-			xPosition: 'right-align',
-			yPosition: 'top'
-		});
+	$('.testing').acoutips({
+		debug: true,
+		on: 'mouseover'
+	})
+	// $('#default_tooltip').acoutips('mouseover');
+	// $('#click_tooltip').acoutips('click');
+	// $('#above_tooltip').acoutips({
+	// 		on: 'mouseover',
+	// 		yPosition: 'top'
+	// 	});
+	// $('#right_tooltip').acoutips({
+	// 		on: 'mouseover',
+	// 		xPosition: 'right'
+	// 	});
+	// $('#left_tooltip').acoutips({
+	// 		on: 'mouseover',
+	// 		xPosition: 'left'
+	// 	});
+	// $('#right_align_tooltip').acoutips({
+	// 		on: 'mouseover',
+	// 		xPosition: 'right-align'
+	// 	});
+	// $('#above_right_align_tooltip').acoutips({
+	// 		on: 'mouseover',
+	// 		xPosition: 'right-align',
+	// 		yPosition: 'top'
+	// 	});
 
-	$('#right_responsive_tooltip').acoutips({
-			on: 'mouseover',
-			xPosition: 'right'
-		});
-	$('#left_responsive_tooltip').acoutips({
-			on: 'mouseover',
-			xPosition: 'left'
-		});
-	$('#right_responsive_set_width_tooltip').acoutips({
-			on: 'mouseover',
-			xPosition: 'right',
-			class: 'acoutips set_width'
-		});
-	$('#left_above_tooltip').acoutips({
-			on: 'mouseover',
-			xPosition: 'left',
-			yPosition: 'top',
-			class: 'acoutips'
-		});
-	$('#title_attribute_tooltip').acoutips('mouseover');
-	$('#data_tip_first_tooltip').acoutips('mouseover');
-	$('#sentence_tooltip').acoutips('mouseover');
+	// $('#right_responsive_tooltip').acoutips({
+	// 		on: 'mouseover',
+	// 		xPosition: 'right'
+	// 	});
+	// $('#left_responsive_tooltip').acoutips({
+	// 		on: 'mouseover',
+	// 		xPosition: 'left'
+	// 	});
+	// $('#right_responsive_set_width_tooltip').acoutips({
+	// 		on: 'mouseover',
+	// 		xPosition: 'right',
+	// 		class: 'acoutips set_width'
+	// 	});
+	// $('#left_above_tooltip').acoutips({
+	// 		on: 'mouseover',
+	// 		xPosition: 'left',
+	// 		yPosition: 'top',
+	// 		class: 'acoutips'
+	// 	});
+	// $('#title_attribute_tooltip').acoutips('mouseover');
+	// $('#data_tip_first_tooltip').acoutips('mouseover');
+	// $('#sentence_tooltip').acoutips('mouseover');
 </script>
 </body>
 </html>
