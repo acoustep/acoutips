@@ -7,10 +7,19 @@
   Acoutips = {
     init: function(options, elem) {
       var _this = this;
+      if (options == null) {
+        options = null;
+      }
       this.elem = elem;
       this.$elem = $(elem);
-      this.on = typeof options === 'string' ? options : options.on;
-      this.options = $.extend({}, $.fn.acoutips.options, options);
+      if (options != null) {
+        this.on = options.on != null ? options.on : $.fn.acoutips.options.on;
+        this.options = $.extend({}, $.fn.acoutips.options, options);
+        this.options.position = typeof options === 'string' ? options : options.position != null ? options.position : $.fn.acoutips.options.position;
+      } else {
+        this.on = $.fn.acoutips.options.on;
+        this.options = $.fn.acoutips.options;
+      }
       this.$elem.on(this.on, function(e) {
         _this.show(_this.$elem);
         if (_this.on === 'click') {
@@ -23,14 +32,66 @@
     },
     show: function(e) {
       if (e.next().attr('class') === this.options.classes) {
-        return e.next().show();
+        e.next().show();
       } else {
         this.log(e.data('tip'));
-        return $('<div></div>', {
+        $('<div></div>', {
           text: e.data('tip' || e.attr('title')),
           "class": this.options.classes
         }).insertAfter(e);
       }
+      return this.position();
+    },
+    position: function() {
+      var $tooltip, leftPosition, link_height, link_position, link_width, tooltip_height, tooltip_width, topPosition, x_position, y_position, _ref;
+      $tooltip = this.$elem.next();
+      link_position = this.$elem.position();
+      link_width = this.$elem.outerWidth();
+      link_height = this.$elem.outerHeight();
+      tooltip_width = $tooltip.outerWidth();
+      tooltip_height = $tooltip.outerHeight();
+      this.log(link_width);
+      this.log(tooltip_width);
+      _ref = this.options.position.split(" "), y_position = _ref[0], x_position = _ref[1];
+      this.log("" + y_position + " " + x_position);
+      switch (x_position) {
+        case 'right':
+          leftPosition = link_position.left + link_width;
+          break;
+        case 'right-inline':
+          leftPosition = (link_position.left + link_width) - tooltip_width;
+          break;
+        case 'center':
+        case 'centre':
+          leftPosition = link_position.left + ((link_width / 2) - (tooltip_width / 2));
+          break;
+        case 'left':
+          leftPosition = link_position.left - tooltip_width;
+          break;
+        default:
+          leftPosition = link_position.left;
+      }
+      switch (y_position) {
+        case 'above':
+        case 'top':
+          topPosition = link_position.top - tooltip_height;
+          break;
+        case 'middle':
+          topPosition = link_position.top + ((link_height / 2) - (tooltip_height / 2));
+          break;
+        case 'bottom-inline':
+          topPosition = (link_position.top + link_height) - tooltip_height;
+          break;
+        case 'top-inline':
+          topPosition = link_position.top;
+          break;
+        default:
+          topPosition = link_position.top + link_height;
+      }
+      return $tooltip.css({
+        left: leftPosition,
+        top: topPosition
+      });
     },
     hide: function(e) {
       if (e.next().attr('class') === this.options.classes) {
@@ -45,6 +106,9 @@
   };
 
   $.fn.acoutips = function(options) {
+    if (options == null) {
+      options = null;
+    }
     return this.each(function() {
       var acoutips;
       acoutips = Object.create(Acoutips);
@@ -56,7 +120,7 @@
     on: 'mouseover',
     off: 'mouseout',
     classes: 'acoutip_tooltip',
-    position: 'bottom left',
+    position: 'bottom left-inline',
     xOffset: 0,
     yOffset: 0,
     responsive: true,

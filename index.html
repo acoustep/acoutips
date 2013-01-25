@@ -22,33 +22,118 @@
 	</style>
 </head>
 <body>
-	<a href="#" id="default_tooltip" class="testing" data-tip="This is a test">Default behaviour</a>
-	<a href="#" id="click_tooltip" class="testing" data-tip="This is a second test">Click behaviour</a>
-	<br><br><br><br>
-	<a href="#" id="above_tooltip" data-tip="This is a test">Above behaviour</a>
+<a href="#" class="testing" data-tip="This is 'bottom left-inline'">Default behaviour</a>
+<a href="#" class="testingleft" data-tip="This is 'bottom left'">Left behaviour</a>
+<a href="#" class="testingcenter" data-tip="bottom central!">Central hover behaviour</a>
+<a href="#" class="testingcenter" data-tip="this tooltip is bottom center">Short central</a>
+<a href="#" class="testingrightinline" data-tip="this tooltip 'bottom right-inline'">Right inline behaviour</a>
+<a href="#" class="testingright" data-tip="this tooltip 'bottom right'">Right behaviour</a>
 
-	<a href="#" id="right_tooltip" data-tip="This is a test">Right behaviour</a>
-	<a href="#" id="left_tooltip" data-tip="This is a test">Left behaviour</a>
-	<a href="#" id="left_above_tooltip" data-tip="This is a test">Left above behaviour</a>
-	<a href="#" id="right_align_tooltip" data-tip="This is a test">Right-align behaviour</a>
-	<a href="#" id="above_right_align_tooltip" data-tip="This is a test">Above right-align behaviour</a>
-	<br><br><br><br>
-	<a href="#" id="left_responsive_tooltip" data-tip="This is a test">Left responsive behaviour</a>
-	<br><br><br><br>
-	<a href="#" id="right_responsive_tooltip" data-tip="This is a test" style="float:right">Right responsive behaviour</a>
-	<br><br><br><br>
-	<a href="#" id="right_responsive_set_width_tooltip" data-tip="This is a test" style="float:right">Right responsive set width behaviour</a>
-	<br><br><br><br>
-	<a href="#" id="title_attribute_tooltip" title="This is the title attribute">Using title attribute</a> <a href="#" id="data_tip_first_tooltip" title="This is the title attribute" data-tip="this is the data-tip attribute">Using data-tip attribute over title attribute</a>
-	<br><br><br><br><br>
-	<p>An example sentence with a <a href="#" id="sentence_tooltip" data-tip="This is a test">tooltip</a> included!</p>
+
+<br><br><br><br>
+
+<a href="#" class="testingaboveleftinline" data-tip="'above left-inline'">left inline above</a>
+<a href="#" class="testingaboveleft" data-tip="'above left'">left above</a>
+<a href="#" class="testingabovecenter" data-tip="'above center'">center above</a>
+<a href="#" class="testingaboveright" data-tip="'above right'">center right</a>
+<a href="#" class="testingaboverightinline" data-tip="'above right-inline'">above right-inline</a>
+
+<br><br><br><br>
+
+<a href="#" class="leftinlinemiddle" data-tip="'middle left-inline'">left inline middle example</a>
+<a href="#" class="middleleft" data-tip="'middle left'">left middle example</a>
+<a href="#" class="middlecenter" data-tip="'middle center'">center middle example</a>
+<a href="#" class="middleright" data-tip="'middle right'">middle right example</a>
+<a href="#" class="middlerightinline" data-tip="'middle right-inline'">middle right-inline testing example</a>
+
+<br><br><br><br>
+
+<a href="#" class="topinlineright" data-tip="top-inline right">top-inline right</a>
+<a href="#" class="bottominlineleft" data-tip="bottom-inline left">bottom-inline left</a>
+<a href="#" class="special" data-tip="special">Special</a>
+
+<br><br><br><br>
+
+<a href="#" class="nooptions" data-tip="no options!">No options entered</a>
+<a href="#" class="click" data-tip="click!">Click</a>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="jquery.acoutips.js"></script>
 <script>
+$('.click').acoutips({
+	on: 'click'
+});
+$('.special').acoutips('top right');
+	$('.nooptions').acoutips();
+	$('.topinlineright').acoutips({
+		debug: true,
+		position: 'top-inline right'
+	});
+	$('.bottominlineleft').acoutips({
+		debug: true,
+		position: 'bottom-inline left'
+	});
+	$('.leftinlinemiddle').acoutips({
+		debug: true,
+		position: 'middle left-inline'
+	});
+	$('.middleleft').acoutips({
+		debug: true,
+		position: 'middle left'
+	});
+
+	$('.middlecenter').acoutips({
+		debug: true,
+		position: 'middle center'
+	});
+	$('.middleright').acoutips({
+		debug: true,
+		position: 'middle right'
+	});
+	$('.middlerightinline').acoutips({
+		debug:true,
+		position: 'middle right-inline'
+	});
 	$('.testing').acoutips({
 		debug: true,
 		on: 'mouseover'
-	})
+	});
+	$('.testingleft').acoutips({
+		debug: true,
+		position: 'bottom left'
+	});
+	$('.testingcenter').acoutips({
+		debug: true,
+		position: 'bottom center'
+	});
+	$('.testingright').acoutips({
+		debug: true,
+		position: 'bottom right'
+	});
+	$('.testingrightinline').acoutips({
+		debug: true,
+		position: 'bottom right-inline'
+	});
+
+	$('.testingaboveleftinline').acoutips({
+		debug:true,
+		position: 'above left-inline'
+	});
+	$('.testingaboveleft').acoutips({
+		debug:true,
+		position: 'above left'
+	});
+	$('.testingabovecenter').acoutips({
+		debug:true,
+		position: 'above center'
+	});
+	$('.testingaboveright').acoutips({
+		debug:true,
+		position: 'above right'
+	});
+	$('.testingaboverightinline').acoutips({
+		debug:true,
+		position: 'above right-inline'
+	});
 	// $('#default_tooltip').acoutips('mouseover');
 	// $('#click_tooltip').acoutips('click');
 	// $('#above_tooltip').acoutips({
