@@ -32,18 +32,24 @@
     },
     show: function(e) {
       if (e.next().attr('class') === this.options.classes) {
-        e.next().show();
+        if (this.options.transition != null) {
+          e.next().stop()[this.options.transition](this.options.transitionOptions);
+        }
       } else {
         this.log(e.data('tip'));
         $('<div></div>', {
           text: e.data('tip' || e.attr('title')),
-          "class": this.options.classes
+          "class": this.options.classes,
+          style: 'display:none'
         }).insertAfter(e);
+        if (this.options.transition != null) {
+          e.next().stop()[this.options.transition](this.options.transitionOptions);
+        }
       }
       return this.position();
     },
     position: function() {
-      var $tooltip, leftPosition, link_height, link_position, link_width, tooltip_height, tooltip_width, topPosition, x_position, y_position, _ref;
+      var $tooltip, excess, leftPosition, link_height, link_position, link_width, rightPosition, tooltip_height, tooltip_width, topPosition, windowWidth, x_position, y_position, _ref;
       $tooltip = this.$elem.next();
       link_position = this.$elem.position();
       link_width = this.$elem.outerWidth();
@@ -88,6 +94,19 @@
         default:
           topPosition = link_position.top + link_height;
       }
+      if (this.options.responsive) {
+        windowWidth = window.outerWidth;
+        this.log('window width: ' + windowWidth);
+        rightPosition = leftPosition + tooltip_width;
+        this.log('right position: ' + rightPosition);
+        if (leftPosition < 0) {
+          leftPosition = 0;
+        } else if (rightPosition > windowWidth) {
+          excess = rightPosition - windowWidth;
+          leftPosition = leftPosition - excess;
+          this.log('excess: ' + excess + ' new right position: ' + (leftPosition + tooltip_width));
+        }
+      }
       return $tooltip.css({
         left: leftPosition,
         top: topPosition
@@ -95,7 +114,9 @@
     },
     hide: function(e) {
       if (e.next().attr('class') === this.options.classes) {
-        return e.next().hide();
+        if (this.options.transition != null) {
+          return e.next().stop()[this.options.transition](this.options.transitionOptions);
+        }
       }
     },
     log: function(msg) {
@@ -124,6 +145,8 @@
     xOffset: 0,
     yOffset: 0,
     responsive: true,
+    transition: 'toggle',
+    transitionOptions: {},
     debug: false
   };
 

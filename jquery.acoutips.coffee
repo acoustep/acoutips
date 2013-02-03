@@ -24,13 +24,15 @@ Acoutips =
 			@hide @$elem # run hide function
 	show: (e) ->
 		if (e.next().attr('class') == @options.classes) # if tooltip exists just show it
-			e.next().show()
+			if @options.transition? then e.next().stop()[@options.transition](@options.transitionOptions)
 		else
 			@log e.data('tip') # create new tooltip
 			$ '<div></div>', 
 				text: e.data 'tip' || e.attr 'title' # use data-tip or tooltip
 				class: @options.classes # set class
-			.insertAfter e # insert after the element
+				style: 'display:none'
+			.insertAfter e  # insert after the element
+			if @options.transition? then e.next().stop()[@options.transition](@options.transitionOptions)
 		@position()
 	position: () ->
 		$tooltip = @$elem.next()
@@ -66,13 +68,25 @@ Acoutips =
 				topPosition = link_position.top
 			else # put undernearth (bottom)
 				topPosition = link_position.top + link_height
+
+		if @options.responsive # if responsive is true
+			windowWidth = window.outerWidth
+			@log 'window width: ' + windowWidth
+			rightPosition = leftPosition + tooltip_width
+			@log 'right position: ' + rightPosition
+			if leftPosition < 0 then leftPosition = 0
+			else if rightPosition > windowWidth
+				excess = rightPosition - windowWidth
+				leftPosition = leftPosition - excess
+				@log 'excess: ' + excess + ' new right position: ' + (leftPosition + tooltip_width)
+
 		$tooltip.css 
 			left: leftPosition
 			top: topPosition
 
 	hide: (e) ->
 		if (e.next().attr('class') == @options.classes)
-			e.next().hide()
+			if @options.transition? then e.next().stop()[@options.transition](@options.transitionOptions)
 	log: (msg)-> # logger
 		console?.log msg if @options.debug # only output if debug is true
 
@@ -91,4 +105,6 @@ $.fn.acoutips.options =
 	xOffset: 0
 	yOffset: 0
 	responsive: true
+	transition: 'toggle'
+	transitionOptions: {}
 	debug: false

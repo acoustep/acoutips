@@ -27,6 +27,26 @@ Or alternatively
 $('.tooltip').acoutips('bottom left-inline');
 ```
 There are many ways to position.  Note that the position is always two words in a string.  The first word is the y position and the second is the x position.
+### Transitions
+Acoutips currently supports the use of toggle effects like so:
+
+```
+$('.slidetoggle').acoutips({
+	transition: 'fadeToggle'
+});
+```
+
+You can also customise your effects by including the transitionOptions parameter:
+
+```
+$('.customtoggle').acoutips({
+	transition: 'slideToggle',
+	transitionOptions: {
+		duration: 100,
+		easing: 'swing'
+	}
+});
+```
 
 ### Y Postions:
 * above / top
@@ -75,17 +95,18 @@ As always use your judgement and test carefully.
 Many of the features are still in development so please feel free to check out the master branch if you are in need of something for production usage.
 
 ## To do (from previous version)
-* responsive tooltips
 * offsets
+* responsive vertical
 
 ## Implemented Improvements
 * Calling the plugin with class names as well as identifiers
 * Better/more positioning options
 * Plugin call with no parameters
+* Transitional effects
+* responsive horizontal
 
 ## Intended Improvements
 * Tidying up code
-* Transitional effects
 * Prettier default styling
 * An option to click off to hide tooltip
 
