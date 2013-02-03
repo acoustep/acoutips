@@ -106,5 +106,5 @@ $.fn.acoutips.options =
 	yOffset: 0
 	responsive: true
 	transition: 'toggle'
-	transitionOptions: {}
+	transitionOptions: null
 	debug: false
