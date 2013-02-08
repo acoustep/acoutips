@@ -23,6 +23,7 @@ Acoutips =
 		@$elem.on @options.off, (e)=> # mouseout etc
 			@hide @$elem # run hide function
 	show: (e) ->
+		@options.onShow()
 		if (e.next().attr('class') == @options.classes) # if tooltip exists just show it
 			if @options.transition? then e.next().stop()[@options.transition](@options.transitionOptions)
 		else
@@ -85,6 +86,7 @@ Acoutips =
 			top: topPosition
 
 	hide: (e) ->
+		@options.onHide()
 		if (e.next().attr('class') == @options.classes)
 			if @options.transition? then e.next().stop()[@options.transition](@options.transitionOptions)
 	log: (msg)-> # logger
@@ -107,4 +109,8 @@ $.fn.acoutips.options =
 	responsive: true
 	transition: 'toggle'
 	transitionOptions: null
+	onShow: ->
+	onHide: ->
+	onShowing: ->
+	onHidden: ->
 	debug: false

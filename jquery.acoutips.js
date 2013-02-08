@@ -31,6 +31,7 @@
       });
     },
     show: function(e) {
+      this.options.onShow();
       if (e.next().attr('class') === this.options.classes) {
         if (this.options.transition != null) {
           e.next().stop()[this.options.transition](this.options.transitionOptions);
@@ -113,6 +114,7 @@
       });
     },
     hide: function(e) {
+      this.options.onHide();
       if (e.next().attr('class') === this.options.classes) {
         if (this.options.transition != null) {
           return e.next().stop()[this.options.transition](this.options.transitionOptions);
@@ -147,6 +149,10 @@
     responsive: true,
     transition: 'toggle',
     transitionOptions: null,
+    onShow: function() {},
+    onHide: function() {},
+    onShowing: function() {},
+    onHidden: function() {},
     debug: false
   };
 

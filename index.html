@@ -73,7 +73,7 @@
 $('.customtoggle').acoutips({
 	transition: 'slideToggle',
 	transitionOptions: {
-		duration: 5000,
+		duration: 4000,
 		easing: 'swing'
 	},
 	debug: true
@@ -128,8 +128,24 @@ $('.special').acoutips('top right');
 		position: 'middle right-inline'
 	});
 	$('.testing').acoutips({
-		debug: true,
-		on: 'mouseover'
+		on: 'mouseover',
+		transition: 'slideToggle',
+		transitionOptions: {
+			duration: 4000,
+			easing: 'swing'
+		},
+		onShow: function() {
+			console.log('on show');
+		},
+		onShowing: function() {
+			console.log('on showing');
+		},
+		onHide: function() {
+			console.log('on hide');
+		},
+		onHidden: function() {
+			console.log('on hidden');
+		}
 	});
 	$('.testingleft').acoutips({
 		debug: true,

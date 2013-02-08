@@ -104,9 +104,11 @@ Many of the features are still in development so please feel free to check out t
 * Plugin call with no parameters
 * Transitional effects
 * responsive horizontal
+* onShow and onHide functionality
 
 ## Intended Improvements
 * Tidying up code
 * Prettier default styling
 * An option to click off to hide tooltip
+* onShowing and onHidden functionality
 
