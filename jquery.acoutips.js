@@ -151,8 +151,6 @@
     transitionOptions: null,
     onShow: function() {},
     onHide: function() {},
-    onShowing: function() {},
-    onHidden: function() {},
     debug: false
   };
 

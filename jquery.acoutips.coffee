@@ -1,5 +1,4 @@
 $ = jQuery
-
 Acoutips = 
 	init: (options=null, @elem)-> # _this = this
 		@$elem = $ elem # the element in question
@@ -111,6 +110,4 @@ $.fn.acoutips.options =
 	transitionOptions: null
 	onShow: ->
 	onHide: ->
-	onShowing: ->
-	onHidden: ->
 	debug: false
